@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gayathri Creative Portfolio</title>
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff', 100:'#e0e7ff', 500:'#6366f1', 600:'#5853f3', 700:'#4f46e5'
+            },
+            neon: '#a855f7'
+          },
+          dropShadow: {
+            glow: '0 0 25px rgba(99,102,241,.45)'
+          },
+          boxShadow: {
+            glass: '0 8px 40px rgba(0,0,0,.15)'
+          },
+          backdropBlur: {
+            xs: '2px'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate on Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    :root { color-scheme: light dark; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    /* fancy gradient animation */
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* glass card border */
+    .glass-border { border: 1px solid rgba(255, 255, 255, 0.18); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 selection:bg-brand-500 selection:text-white">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 z-50 w-full">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="mt-3 flex items-center justify-between rounded-2xl bg-white/60 px-4 py-3 shadow-lg backdrop-blur-md glass-border">
+        <a href="#home" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-brand-500 via-neon to-fuchsia-500 text-white font-bold">G</span>
+          <span class="text-lg font-semibold tracking-wide">GAYATHRI MASAAKAPALLI</span>
+        </a>
+        <button id="menuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/60" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+        <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#about" class="hover:text-brand-700">About</a>
+          <a href="#skills" class="hover:text-brand-700">Skills</a>
+          <a href="#projects" class="hover:text-brand-700">Projects</a>
+          <a href="#experience" class="hover:text-brand-700">Experience</a>
+          <a href="#contact" class="hover:text-brand-700">Contact</a>
+          <a href="#contact" class="rounded-xl bg-gradient-to-r from-brand-500 to-neon px-4 py-2 text-white shadow hover:drop-shadow-glow">Hire Me</a>
+        </nav>
+      </div>
+      <div id="mobileNav" class="md:hidden hidden mt-2 rounded-xl bg-white/70 px-4 py-3 shadow-lg backdrop-blur-md">
+        <div class="grid gap-3 text-sm font-medium">
+          <a href="#about" class="hover:text-brand-700">About</a>
+          <a href="#skills" class="hover:text-brand-700">Skills</a>
+          <a href="#projects" class="hover:text-brand-700">Projects</a>
+          <a href="#experience" class="hover:text-brand-700">Experience</a>
+          <a href="#contact" class="hover:text-brand-700">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="relative flex min-h-[92vh] items-center overflow-hidden pt-28">
+    <div class="absolute inset-0 -z-10 animate-gradient bg-gradient-to-br from-brand-500 via-purple-600 to-fuchsia-500 opacity-90"></div>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,.35),transparent_60%)]"></div>
+
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2">
+      <div class="text-white" data-aos="fade-right">
+        <p class="mb-2 inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-semibold tracking-wide glass-border">Engineering Student • AI • Web Develpment</p>
+        <h1 class="text-4xl font-extrabold leading-tight md:text-6xl drop-shadow">
+          Hi, I'm <span class="underline decoration-white/60">GAYATHRI MASAKAPALLI</span><br />
+          <span id="typewrite" class="bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent"></span>
+        </h1>
+        <p class="mt-5 max-w-xl text-white/90">
+          CSE (AI) student crafting bold web experiences and AI-powered apps. I love turning ideas into interactive, performant products.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#projects" class="rounded-xl bg-white px-5 py-3 font-semibold text-gray-900 shadow hover:shadow-lg">See Projects</a>
+          <a href="#contact" class="rounded-xl bg-black/30 px-5 py-3 font-semibold text-white glass-border hover:bg-black/40">Contact Me</a>
+        </div>
+      </div>
+      <div class="relative" data-aos="zoom-in">
+        <div class="mx-auto h-72 w-72 rounded-[2rem] bg-white/15 p-1 shadow-2xl backdrop-blur-md glass-border md:h-80 md:w-80">
+         <div class="h-full w-full rounded-[1.6rem] bg-[url('profile.png')] bg-cover bg-center"></div>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="relative py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl font-extrabold text-gray-900">About Me</h2>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            I'm Masakapalli Gayathri, a Computer Science student specializing in AI. I enjoy building web apps with clean UI and practical ML features. Currently interning at <span class="font-semibold">Visam.ai</span> and exploring cloud (AWS) and backend (Django/FastAPI).
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="rounded-xl bg-brand-50 px-3 py-1 text-brand-700 text-sm">CSE (AI)</span>
+            <span class="rounded-xl bg-purple-50 px-3 py-1 text-purple-700 text-sm">Web Develpment</span>
+            <span class="rounded-xl bg-pink-50 px-3 py-1 text-pink-700 text-sm">Cloud</span>
+            <span class="rounded-xl bg-indigo-50 px-3 py-1 text-indigo-700 text-sm">Prompt Engineering</span>
+          </div>
+          <div class="mt-8 flex gap-4">
+            <a href="g.resume.pdf" class="rounded-xl bg-gradient-to-r from-brand-500 to-neon px-5 py-3 font-semibold text-white shadow hover:drop-shadow-glow">Download Resume</a>
+            <a href="https://github.com/gayathrimasakalli" target="_blank" class="rounded-xl border border-gray-300 px-5 py-3 font-semibold text-gray-700 hover:bg-gray-100">GitHub</a>
+            <a href="https://www.linkedin.com/in/masakapalligayathri/" target="_blank" class="rounded-xl border border-gray-300 px-5 py-3 font-semibold text-gray-700 hover:bg-gray-100">LinkedIn</a>
+          </div>
+        </div>
+        <div class="grid gap-6" data-aos="fade-left">
+          <div class="rounded-2xl bg-white/70 p-6 shadow-xl backdrop-blur-md glass-border">
+            <h3 class="text-xl font-semibold">What I love</h3>
+            <p class="mt-2 text-gray-600">Designing delightful interfaces, data-driven features, and ship-fast side projects.</p>
+          </div>
+          <div class="rounded-2xl bg-white/70 p-6 shadow-xl backdrop-blur-md glass-border">
+            <h3 class="text-xl font-semibold">Current Focus</h3>
+            <p class="mt-2 text-gray-600">Building <span class="font-medium">Mood Mirror</span> (emotion → music/quote/GIF) and improving my HRMS project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="relative bg-gradient-to-b from-white to-gray-100 py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-center text-3xl font-extrabold">Skills</h2>
+      <p class="mt-2 text-center text-gray-600">A mix of web, AI, and cloud tools I use often</p>
+      <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <!-- skill chip -->
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in">Python</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="50">HTML</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="100">CSS</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="150">JavaScript</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="200">Django</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="350">SQL</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="400">MongoDB</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="450">Python</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="500">NumPy</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="550">Pandas</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="250">AI</div>
+        <div class="rounded-xl bg-white/80 p-4 text-center font-semibold shadow glass-border" data-aos="zoom-in" data-aos-delay="250">Prompt Engineering</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="relative py-20">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.10),transparent_60%)]"></div>
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-3xl font-extrabold">Featured Projects</h2>
+        <a href="#" class="text-sm font-semibold text-brand-700 hover:underline">View all →</a>
+      </div>
+
+      <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="group rounded-2xl bg-white/70 p-4 shadow-xl backdrop-blur-md transition hover:-translate-y-1 hover:shadow-2xl glass-border" data-aos="fade-up">
+          <div class="h-44 w-full overflow-hidden rounded-xl bg-gradient-to-tr from-brand-500 via-purple-500 to-fuchsia-500">
+            <img alt="HRMS" class="h-full w-full object-cover opacity-90 transition duration-300 group-hover:scale-105" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1280&auto=format&fit=crop" />
+          </div>
+          <div class="p-2">
+            <h3 class="mt-4 text-xl font-semibold">HR Management System</h3>
+            <p class="mt-2 text-gray-600">Attendance, payroll, role-based access, and performance evaluations with reports.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-md bg-brand-50 px-2 py-1 text-brand-700">Django</span>
+              <span class="rounded-md bg-purple-50 px-2 py-1 text-purple-700">PostgreSQL</span>
+              <span class="rounded-md bg-pink-50 px-2 py-1 text-pink-700">JavaScript</span>
+            </div>
+            <div class="mt-4 flex gap-3">
+              <a href="#" class="text-sm font-semibold text-brand-700 hover:underline">Demo</a>
+              <a href="#" class="text-sm font-semibold text-gray-700 hover:underline">GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="group rounded-2xl bg-white/70 p-4 shadow-xl backdrop-blur-md transition hover:-translate-y-1 hover:shadow-2xl glass-border" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-44 w-full overflow-hidden rounded-xl bg-gradient-to-tr from-fuchsia-500 via-purple-500 to-brand-500">
+            <img alt="Mood Mirror" class="h-full w-full object-cover opacity-90 transition duration-300 group-hover:scale-105" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1280&auto=format&fit=crop" />
+          </div>
+          <div class="p-2">
+            <h3 class="mt-4 text-xl font-semibold">Mood Mirror</h3>
+            <p class="mt-2 text-gray-600">Detect emotion from text/photo and recommend matching music, quotes or GIFs.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-md bg-indigo-50 px-2 py-1 text-indigo-700">FastAPI</span>
+              <span class="rounded-md bg-rose-50 px-2 py-1 text-rose-700">Vision</span>
+              <span class="rounded-md bg-emerald-50 px-2 py-1 text-emerald-700">NLP</span>
+            </div>
+            <div class="mt-4 flex gap-3">
+              <a href="#" class="text-sm font-semibold text-brand-700 hover:underline">Demo</a>
+              <a href="#" class="text-sm font-semibold text-gray-700 hover:underline">GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="group rounded-2xl bg-white/70 p-4 shadow-xl backdrop-blur-md transition hover:-translate-y-1 hover:shadow-2xl glass-border" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-44 w-full overflow-hidden rounded-xl bg-gradient-to-tr from-violet-500 via-brand-500 to-pink-500">
+            <img alt="Portfolio" class="h-full w-full object-cover opacity-90 transition duration-300 group-hover:scale-105" src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1280&auto=format&fit=crop" />
+          </div>
+          <div class="p-2">
+            <h3 class="mt-4 text-xl font-semibold">Student performance System</h3>
+            <p class="mt-2 text-gray-600">Developed a Student Performance System to track attendance, marks, and generate performance analytics with role-based access. Implemented data visualization and reporting to help students, parents, and faculty monitor progress effectively .</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-md bg-sky-50 px-2 py-1 text-sky-700">ML</span>
+              <span class="rounded-md bg-amber-50 px-2 py-1 text-amber-700">Matplotlib</span>
+              <span class="rounded-md bg-slate-50 px-2 py-1 text-slate-700">Python</span>
+            </div>
+            <div class="mt-4 flex gap-3">
+              <a href="https://colab.research.google.com/drive/1FNXcU2OkroAinL_cDcTMwlKiD8O75ydj#scrollTo=3NuIWu-2Dcqm" class="text-sm font-semibold text-brand-700 hover:underline">Live</a>
+              <a href="#" class="text-sm font-semibold text-gray-700 hover:underline">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="relative bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-3xl font-extrabold">Experience & Education</h2>
+      <div class="mt-10 grid gap-8 md:grid-cols-2">
+        <div class="space-y-6" data-aos="fade-right">
+          <div class="rounded-2xl bg-white/80 p-6 shadow-xl backdrop-blur-md glass-border">
+            <h3 class="text-lg font-semibold">Intern — Visam.ai</h3>
+            <p class="text-sm text-gray-600">Jun 2025 — Present</p>
+            <p class="mt-2 text-gray-700">Contributing to AI features and web components; collaborating on cloud deployments.</p>
+          </div>
+          <div class="rounded-2xl bg-white/80 p-6 shadow-xl backdrop-blur-md glass-border">
+            <h3 class="text-lg font-semibold">Project — Human Resource Management System</h3>
+            <p class="text-sm text-gray-600">2025</p>
+            <p class="mt-2 text-gray-700">Attendance & payroll automation with analytics and role-based access.</p>
+          </div>
+        </div>
+        <div class="space-y-6" data-aos="fade-left">
+          <div class="rounded-2xl bg-white/80 p-6 shadow-xl backdrop-blur-md glass-border">
+            <h3 class="text-lg font-semibold">B.Tech — CSE (AI)</h3>
+            <p class="text-sm text-gray-600">2022 — 2026 (Expected Mar 2026)</p>
+            <p class="mt-2 text-gray-700">Focused on AI/ML, Data Structures, Networking, and Cloud fundamentals.</p>
+          </div>
+          <div class="rounded-2xl bg-white/80 p-6 shadow-xl backdrop-blur-md glass-border">
+            <h3 class="text-lg font-semibold">Awards & Highlights</h3>
+            <p class="mt-2 text-gray-700">•	Secured a second position in KABADDI game out of 05+ teams as a part of  College Sports 2025
+             <br>•	Awarded All Rounder of the Year for excellence in academics and co-curricular activities
+.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl font-extrabold">Let's work together</h2>
+          <p class="mt-3 text-gray-600">Have an opportunity or collaboration in mind? Send a message — I usually reply within a day.</p>
+          <div class="mt-6 space-y-2 text-sm text-gray-700">
+            <p>📧 <a class="font-semibold hover:underline" href="masakapalligayathri@gmail.com">masakapalligayathri@gmail.com</a></p>
+            <p>🔗 <a class="font-semibold hover:underline" href="https://linkedin.com/" target="_blank">LinkedIn</a> · <a class="font-semibold hover:underline" href="https://github.com/" target="_blank">GitHub</a></p>
+          </div>
+        </div>
+<form action="https://formspree.io/f/meolqykl" method="POST" data-aos="fade-left" class="rounded-2xl bg-white/80 p-6 shadow-xl backdrop-blur-md glass-border">
+  
+  <!-- 👇 Custom redirect -->
+  <input type="hidden" name="_redirect" value="https://yourusername.github.io/thankyou.html">
+
+  <div class="grid gap-4">
+    <input type="text" name="name" class="w-full rounded-xl border border-gray-300/80 bg-white/60 px-4 py-3 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-200" placeholder="Your Name" required />
+
+    <input type="email" name="email" class="w-full rounded-xl border border-gray-300/80 bg-white/60 px-4 py-3 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-200" placeholder="Your Email" required />
+
+    <textarea name="message" rows="5" class="w-full rounded-xl border border-gray-300/80 bg-white/60 px-4 py-3 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-200" placeholder="Your Message" required></textarea>
+
+    <button type="submit" class="rounded-xl bg-gradient-to-r from-brand-500 to-neon px-5 py-3 font-semibold text-white shadow hover:drop-shadow-glow">
+      Send
+    </button>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative border-t bg-white/70 py-8 text-center text-sm text-gray-600 backdrop-blur-md">
+    <p>© 2025  GAYATHRI MASAAKAPALLI</p>
+  </footer>
+
+  <!-- AOS + Typing + Menu JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // AOS
+    AOS.init({ duration: 800, once: true, offset: 80 });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // Typewriter effect
+    const roles = ['AI Engineer', 'Web Developer', 'Cloud Learner'];
+    const el = document.getElementById('typewrite');
+    let i = 0, j = 0, deleting = false;
+    function type() {
+      const word = roles[i % roles.length];
+      el.textContent = deleting ? word.slice(0, j--) : word.slice(0, j++);
+      if (!deleting && j === word.length + 4) deleting = true; // pause before delete
+      if (deleting && j === 0) { deleting = false; i++; }
+      const speed = deleting ? 60 : 120;
+      setTimeout(type, speed);
+    }
+    type();
+  </script>
+</body>
+</html>
